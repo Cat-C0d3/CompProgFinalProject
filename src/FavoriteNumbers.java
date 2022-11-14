@@ -44,6 +44,13 @@ public class FavoriteNumbers {
         return numInvalidNumbers;
     }
 
+    /**
+     * Similar to getNumInvalid but doesn't check every number.
+     * @param lower the lower bound of the range, inclusive
+     * @param upper the upper bound of the range, inclusive
+     * @return an int representing the numbers within the range that
+     * do not meet the specified criteria.
+     */
     private static int getNumInvalidRefined(int lower, int upper){
         int numInvalidNumbers = 0;
         int difference = upper-lower;
@@ -54,7 +61,7 @@ public class FavoriteNumbers {
         }
         if(difference > 0){
             int current;
-            for (int i = startIndex; i < difference; i+=2){ //brute force solution
+            for (int i = startIndex; i < difference; i+=2){
                 current = lower + i;
                 if (!(current != 3 && (current%3 == 0 || current%5 == 0))){
                     numInvalidNumbers++;
